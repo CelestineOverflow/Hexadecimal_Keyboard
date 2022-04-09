@@ -1,0 +1,1 @@
+"./main.obj" "./sc4c1294ncpdt_startup_ccs.obj" "./Tutorial_Code/LED-Blink.obj" "./Tutorial_Code/PrintfTest.obj" "../sc4c1294ncpdt.cmd" -llibc.a 
