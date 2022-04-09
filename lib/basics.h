@@ -39,3 +39,6 @@ void square(uint32_t GPIO, uint32_t steps){//square wave
     delay(steps / 2);
 }
 
+void enable_port(uint32_t GPIO){//enable port;
+    GPIO |= 0xFF; // enable digital I/O (BITS 0-7)
+}
