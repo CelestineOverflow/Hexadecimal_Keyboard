@@ -1,6 +1,7 @@
 # FIXED
 
 main.obj: ../main.c
+main.obj: ../lib/basics.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.4.178/inc/tm4c1294ncpdt.h
 main.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdint.h
 main.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/_ti_config.h
@@ -14,9 +15,10 @@ main.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine
 main.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h
 main.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdio.h
 main.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h
-main.obj: ../lib/basics.h
 
 ../main.c:
+
+../lib/basics.h:
 
 C:/ti/TivaWare_C_Series-2.1.4.178/inc/tm4c1294ncpdt.h:
 
@@ -43,6 +45,4 @@ C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h:
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdio.h:
 
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h:
-
-../lib/basics.h:
 

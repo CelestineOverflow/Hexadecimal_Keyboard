@@ -1,0 +1,544 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.6                     
+******************************************************************************
+>> Linked Fri Apr 15 20:45:54 2022
+
+OUTPUT FILE NAME:   <Hexadecimal_Keyboard.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00002b19
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  00002f21  000fd0df  R  X
+  SRAM                  20000000   00040000  000013c0  0003ec40  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00002f28   00002f28    r-x
+  00000000    00000000    00000208   00000208    r-- .intvecs
+  00000208    00000208    00002b78   00002b78    r-x .text
+  00002d80    00002d80    00000101   00000101    r-- .const
+  00002e88    00002e88    000000a0   000000a0    r-- .cinit
+20000000    20000000    000013c0   00000000    rw-
+  20000000    20000000    00000800   00000000    rw- .stack
+  20000800    20000800    00000800   00000000    rw- .sysmem
+  20001000    20001000    000001f8   00000000    rw- .data
+  200011f8    200011f8    000001c8   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000208     
+                  00000000    00000208     sc4c1294ncpdt_startup_ccs.obj (.intvecs)
+
+.text      0    00000208    00002b78     
+                  00000208    00000a4e     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:__TI_printfi)
+                  00000c56    00000002                                   : _lock.c.obj (.text:_nop)
+                  00000c58    00000270                                   : _printfi.c.obj (.text:_pconv_a)
+                  00000ec8    000001d0                                   : _printfi.c.obj (.text:_pconv_g)
+                  00001098    000001b6                                   : fd_add_t2.asm.obj (.text)
+                  0000124e    00000002                                   : div0.asm.obj (.text)
+                  00001250    0000017c     main.obj (.text)
+                  000013cc    0000013c     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.c.obj (.text:_pconv_e)
+                  00001508    00000136                                   : fd_div_t2.asm.obj (.text)
+                  0000163e    00000002     --HOLE-- [fill = 0]
+                  00001640    00000124                                   : _printfi.c.obj (.text:fcvt)
+                  00001764    00000114                                   : fputs.c.obj (.text:fputs)
+                  00001878    00000110                                   : s_scalbn.c.obj (.text:scalbn)
+                  00001988    00000100                                   : memory.c.obj (.text:aligned_alloc)
+                  00001a88    000000fc                                   : fd_mul_t2.asm.obj (.text)
+                  00001b84    000000e4                                   : memory.c.obj (.text:free)
+                  00001c68    000000dc                                   : setvbuf.c.obj (.text:setvbuf)
+                  00001d44    000000b1                                   : _printfi.c.obj (.text:_ltostr)
+                  00001df5    00000001     --HOLE-- [fill = 0]
+                  00001df6    0000009c                                   : memcpy_t2.asm.obj (.text)
+                  00001e92    00000096                                   : ull_div_t2.asm.obj (.text)
+                  00001f28    0000008c                                   : fputc.c.obj (.text:fputc)
+                  00001fb4    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
+                  0000203a    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
+                  000020c0    0000007a                                   : memset_t2.asm.obj (.text)
+                  0000213a    00000002     --HOLE-- [fill = 0]
+                  0000213c    00000074                                   : fclose.c.obj (.text:__TI_closefile)
+                  000021b0    00000070                                   : memory.c.obj (.text:split)
+                  00002220    0000006e                                   : _printfi.c.obj (.text:_mcpy)
+                  0000228e    00000002     --HOLE-- [fill = 0]
+                  00002290    0000006c                                   : hostrename.c.obj (.text:HOSTrename)
+                  000022fc    00000068                                   : hostlseek.c.obj (.text:HOSTlseek)
+                  00002364    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000023cc    00000068                                   : printf.c.obj (.text:printf)
+                  00002434    00000064                                   : s_frexp.c.obj (.text:frexp)
+                  00002498    00000064                                   : fseek.c.obj (.text:fseek)
+                  000024fc    00000062                                   : _io_perm.c.obj (.text:__TI_wrt_ok)
+                  0000255e    00000002     --HOLE-- [fill = 0]
+                  00002560    00000060                                   : hostopen.c.obj (.text:HOSTopen)
+                  000025c0    0000005c                                   : close.c.obj (.text:close)
+                  0000261c    00000058                                   : hostread.c.obj (.text:HOSTread)
+                  00002674    00000058                                   : hostwrite.c.obj (.text:HOSTwrite)
+                  000026cc    00000056                                   : _printfi.c.obj (.text:_pconv_f)
+                  00002722    00000054                                   : _ltoa.c.obj (.text:__TI_ltoa)
+                  00002776    00000052                                   : _printfi.c.obj (.text:_ecpy)
+                  000027c8    0000004c                                   : fflush.c.obj (.text:__TI_doflush)
+                  00002814    0000004c                                   : atoi.c.obj (.text:atoi)
+                  00002860    00000048                                   : exit.c.obj (.text:exit)
+                  000028a8    00000048                                   : fd_toi_t2.asm.obj (.text)
+                  000028f0    00000044                                   : hostclose.c.obj (.text:HOSTclose)
+                  00002934    00000044                                   : hostunlink.c.obj (.text:HOSTunlink)
+                  00002978    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000029bc    00000044                                   : getdevice.c.obj (.text:getdevice)
+                  00002a00    0000003e                                   : _printfi.c.obj (.text:_fcpy)
+                  00002a3e    00000002     --HOLE-- [fill = 0]
+                  00002a40    00000038                                   : trgmsg.c.obj (.text:__TI_writemsg)
+                  00002a78    00000036                                   : strncpy.c.obj (.text:strncpy)
+                  00002aae    00000002     --HOLE-- [fill = 0]
+                  00002ab0    00000034                                   : fopen.c.obj (.text:__TI_cleanup)
+                  00002ae4    00000034                                   : trgmsg.c.obj (.text:__TI_readmsg)
+                  00002b18    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00002b4c    00000030                                   : getdevice.c.obj (.text:finddevice)
+                  00002b7c    0000002e                                   : i_tofd_t2.asm.obj (.text)
+                  00002baa    00000002     --HOLE-- [fill = 0]
+                  00002bac    0000002c                                   : unlink.c.obj (.text:unlink)
+                  00002bd8    00000028                                   : memory.c.obj (.text:free_list_insert)
+                  00002c00    00000028                                   : lseek.c.obj (.text:lseek)
+                  00002c28    00000028                                   : write.c.obj (.text:write)
+                  00002c50    00000020                                   : memchr.c.obj (.text:memchr)
+                  00002c70    0000001c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00002c8c    0000001c                                   : memory.c.obj (.text:free_list_remove)
+                  00002ca8    0000001c                                   : memccpy.c.obj (.text:memccpy)
+                  00002cc4    0000001a                                   : s_copysign.c.obj (.text:copysign)
+                  00002cde    00000018                                   : strcmp.c.obj (.text:strcmp)
+                  00002cf6    00000016                                   : strchr.c.obj (.text:strchr)
+                  00002d0c    00000014                                   : strcpy.c.obj (.text:strcpy)
+                  00002d20    00000014                                   : strlen.c.obj (.text:strlen)
+                  00002d34    00000012                                   : wcslen.c.obj (.text:wcslen)
+                  00002d46    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00002d54    0000000c     sc4c1294ncpdt_startup_ccs.obj (.text)
+                  00002d60    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.text:__aeabi_errno_addr)
+                  00002d68    00000008                                   : memory.c.obj (.text:malloc)
+                  00002d70    00000004                                   : printf.c.obj (.text:_outc)
+                  00002d74    00000004                                   : printf.c.obj (.text:_outs)
+                  00002d78    00000004                                   : pre_init.c.obj (.text:_system_pre_init)
+                  00002d7c    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00002d80    00000101     
+                  00002d80    00000101     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.c.obj (.const:.string:_ctypes_)
+
+.cinit     0    00002e88    000000a0     
+                  00002e88    0000007a     (.cinit..data.load) [load image, compression = lzss]
+                  00002f02    00000002     --HOLE-- [fill = 0]
+                  00002f04    0000000c     (__TI_handler_table)
+                  00002f10    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002f18    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000800     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000007fc     --HOLE--
+
+.sysmem    0    20000800    00000800     UNINITIALIZED
+                  20000800    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.c.obj (.sysmem)
+                  20000810    000007f0     --HOLE--
+
+.data      0    20001000    000001f8     UNINITIALIZED
+                  20001000    000000f0     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.c.obj (.data:_ftable)
+                  200010f0    00000078                                   : host_device.c.obj (.data:_device)
+                  20001168    00000050                                   : host_device.c.obj (.data:_stream)
+                  200011b8    00000010     main.obj (.data:keyboard_output)
+                  200011c8    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.c.obj (.data)
+                  200011d8    0000000c                                   : exit.c.obj (.data:$O1$$)
+                  200011e4    00000008                                   : _lock.c.obj (.data:$O1$$)
+                  200011ec    00000008                                   : memory.c.obj (.data:$O1$$)
+                  200011f4    00000004                                   : errno.c.obj (.data)
+
+.bss       0    200011f8    000001c8     UNINITIALIZED
+                  200011f8    00000120     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.c.obj (.bss:_CIOBUF_)
+                  20001318    000000a0     (.common:__TI_tmpnams)
+                  200013b8    00000008     (.common:parmbuf)
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                          code    ro data   rw data
+       ------                          ----    -------   -------
+    .\
+       sc4c1294ncpdt_startup_ccs.obj   12      520       0      
+       main.obj                        380     0         16     
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          392     520       16     
+                                                                
+    C:\ti\ccs1110\ccs\tools\compiler\ti-cgt-arm_20.2.6.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       _printfi.c.obj                  4851    0         0      
+       memory.c.obj                    672     0         8      
+       fd_add_t2.asm.obj               438     0         0      
+       defs.c.obj                      0       0         416    
+       trgmsg.c.obj                    108     0         288    
+       fd_div_t2.asm.obj               310     0         0      
+       fputs.c.obj                     276     0         0      
+       s_scalbn.c.obj                  272     0         0      
+       fd_cmp_t2.asm.obj               268     0         0      
+       ctype.c.obj                     0       257       0      
+       fd_mul_t2.asm.obj               252     0         0      
+       setvbuf.c.obj                   220     0         0      
+       host_device.c.obj               0       0         200    
+       memcpy_t2.asm.obj               156     0         0      
+       ull_div_t2.asm.obj              150     0         0      
+       fputc.c.obj                     140     0         0      
+       memset_t2.asm.obj               122     0         0      
+       fclose.c.obj                    116     0         0      
+       getdevice.c.obj                 116     0         0      
+       printf.c.obj                    112     0         0      
+       hostrename.c.obj                108     0         0      
+       copy_decompress_lzss.c.obj      104     0         0      
+       hostlseek.c.obj                 104     0         0      
+       hostopen.c.obj                  96      0         8      
+       fseek.c.obj                     100     0         0      
+       s_frexp.c.obj                   100     0         0      
+       _io_perm.c.obj                  98      0         0      
+       close.c.obj                     92      0         0      
+       exit.c.obj                      76      0         12     
+       hostread.c.obj                  88      0         0      
+       hostwrite.c.obj                 88      0         0      
+       _ltoa.c.obj                     84      0         0      
+       atoi.c.obj                      76      0         0      
+       fflush.c.obj                    76      0         0      
+       fd_toi_t2.asm.obj               72      0         0      
+       autoinit.c.obj                  68      0         0      
+       hostclose.c.obj                 68      0         0      
+       hostunlink.c.obj                68      0         0      
+       strncpy.c.obj                   54      0         0      
+       boot_cortex_m.c.obj             52      0         0      
+       fopen.c.obj                     52      0         0      
+       i_tofd_t2.asm.obj               46      0         0      
+       unlink.c.obj                    44      0         0      
+       lseek.c.obj                     40      0         0      
+       write.c.obj                     40      0         0      
+       memchr.c.obj                    32      0         0      
+       copy_zero_init.c.obj            28      0         0      
+       memccpy.c.obj                   28      0         0      
+       s_copysign.c.obj                26      0         0      
+       strcmp.c.obj                    24      0         0      
+       strchr.c.obj                    22      0         0      
+       strcpy.c.obj                    20      0         0      
+       strlen.c.obj                    20      0         0      
+       wcslen.c.obj                    18      0         0      
+       copy_decompress_none.c.obj      14      0         0      
+       errno.c.obj                     8       0         4      
+       _lock.c.obj                     2       0         8      
+       pre_init.c.obj                  4       0         0      
+       div0.asm.obj                    2       0         0      
+    +--+-------------------------------+-------+---------+---------+
+       Total:                          10721   257       944    
+                                                                
+       Heap:                           0       0         2048   
+       Stack:                          0       0         2048   
+       Linker Generated:               0       158       0      
+    +--+-------------------------------+-------+---------+---------+
+       Grand Total:                    11113   935       5056   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002f18 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002e88, load size=0000007a bytes, run addr=20001000, run size=000001f8 bytes, compression=lzss
+	.bss: load addr=00002f10, load size=00000008 bytes, run addr=200011f8, run size=000001c8 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002f04 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+00002d7d  C$$EXIT                        
+00002a6f  C$$IO$$                        
+000028f1  HOSTclose                      
+000022fd  HOSTlseek                      
+00002561  HOSTopen                       
+0000261d  HOSTread                       
+00002291  HOSTrename                     
+00002935  HOSTunlink                     
+00002675  HOSTwrite                      
+00002d55  ResetISR                       
+200011f8  __CIOBUF_                      
+20000800  __STACK_END                    
+00000800  __STACK_SIZE                   
+20000200  __STACK_TOP                    
+00000800  __SYSMEM_SIZE                  
+00002f18  __TI_CINIT_Base                
+00002f28  __TI_CINIT_Limit               
+00002f04  __TI_Handler_Table_Base        
+00002f10  __TI_Handler_Table_Limit       
+00002979  __TI_auto_init_nobinit_nopinit 
+00002ab1  __TI_cleanup                   
+200011d8  __TI_cleanup_ptr               
+0000213d  __TI_closefile                 
+00002365  __TI_decompress_lzss           
+00002d47  __TI_decompress_none           
+000027c9  __TI_doflush                   
+200011dc  __TI_dtors_ptr                 
+200011e0  __TI_enable_exit_profile_output
+200011c8  __TI_ft_end                    
+00002723  __TI_ltoa                      
+ffffffff  __TI_pprof_out_hndl            
+00000209  __TI_printfi                   
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+00002ae5  __TI_readmsg                   
+00000000  __TI_static_base__             
+20001318  __TI_tmpnams                   
+00002a41  __TI_writemsg                  
+000024fd  __TI_wrt_ok                    
+00002c71  __TI_zero_init_nomemset        
+00001fb5  __aeabi_cdcmpeq                
+00001fb5  __aeabi_cdcmple                
+0000203b  __aeabi_cdrcmple               
+000028a9  __aeabi_d2iz                   
+000010a3  __aeabi_dadd                   
+00001509  __aeabi_ddiv                   
+00001a89  __aeabi_dmul                   
+00001099  __aeabi_dsub                   
+00002d61  __aeabi_errno_addr             
+00002b7d  __aeabi_i2d                    
+0000124f  __aeabi_idiv0                  
+0000124f  __aeabi_ldiv0                  
+000020c1  __aeabi_memclr                 
+000020c1  __aeabi_memclr4                
+000020c1  __aeabi_memclr8                
+00001df7  __aeabi_memcpy                 
+00001df7  __aeabi_memcpy4                
+00001df7  __aeabi_memcpy8                
+000020c3  __aeabi_memset                 
+000020c3  __aeabi_memset4                
+000020c3  __aeabi_memset8                
+200011d4  __aeabi_stderr                 
+200011cc  __aeabi_stdin                  
+200011d0  __aeabi_stdout                 
+00001e93  __aeabi_uldivmod               
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+UNDEFED   __mpu_init                     
+20000000  __stack                        
+20000000  __start___llvm_prf_cnts        
+20000000  __stop___llvm_prf_cnts         
+00002b19  _c_int00_noargs                
+00002d80  _ctypes_                       
+200010f0  _device                        
+20001000  _ftable                        
+200011e4  _lock                          
+00000c57  _nop                           
+20001168  _stream                        
+20000800  _sys_memory                    
+UNDEFED   _system_post_cinit             
+00002d79  _system_pre_init               
+200011e8  _unlock                        
+00002d7d  abort                          
+00001989  aligned_alloc                  
+00002815  atoi                           
+ffffffff  binit                          
+000012bf  checkPin                       
+000025c1  close                          
+00002cc5  copysign                       
+00002cc5  copysignl                      
+000012b7  delay                          
+00001363  enable_port                    
+200011f4  errno                          
+00002861  exit                           
+00002b4d  finddevice                     
+00001f29  fputc                          
+00001765  fputs                          
+00001b85  free                           
+00002435  frexp                          
+00002435  frexpl                         
+00002499  fseek                          
+00000000  g_pfnVectors                   
+000012cd  getKey                         
+000029bd  getdevice                      
+200011b8  keyboard_output                
+00001879  ldexp                          
+00001879  ldexpl                         
+00001341  loop                           
+00002c01  lseek                          
+00001357  main                           
+00002d69  malloc                         
+00001989  memalign                       
+00002ca9  memccpy                        
+00002c51  memchr                         
+00001df7  memcpy                         
+000020c9  memset                         
+200013b8  parmbuf                        
+000023cd  printf                         
+00001f29  putc                           
+00002bad  remove                         
+00001879  scalbn                         
+00001879  scalbnl                        
+0000129f  setPin                         
+0000125f  setup                          
+00001c69  setvbuf                        
+00001251  startClock                     
+00002cf7  strchr                         
+00002cdf  strcmp                         
+00002d0d  strcpy                         
+00002d21  strlen                         
+00002a79  strncpy                        
+00002bad  unlink                         
+00002d35  wcslen                         
+00002c29  write                          
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000000  __TI_static_base__             
+00000000  g_pfnVectors                   
+00000209  __TI_printfi                   
+00000800  __STACK_SIZE                   
+00000800  __SYSMEM_SIZE                  
+00000c57  _nop                           
+00001099  __aeabi_dsub                   
+000010a3  __aeabi_dadd                   
+0000124f  __aeabi_idiv0                  
+0000124f  __aeabi_ldiv0                  
+00001251  startClock                     
+0000125f  setup                          
+0000129f  setPin                         
+000012b7  delay                          
+000012bf  checkPin                       
+000012cd  getKey                         
+00001341  loop                           
+00001357  main                           
+00001363  enable_port                    
+00001509  __aeabi_ddiv                   
+00001765  fputs                          
+00001879  ldexp                          
+00001879  ldexpl                         
+00001879  scalbn                         
+00001879  scalbnl                        
+00001989  aligned_alloc                  
+00001989  memalign                       
+00001a89  __aeabi_dmul                   
+00001b85  free                           
+00001c69  setvbuf                        
+00001df7  __aeabi_memcpy                 
+00001df7  __aeabi_memcpy4                
+00001df7  __aeabi_memcpy8                
+00001df7  memcpy                         
+00001e93  __aeabi_uldivmod               
+00001f29  fputc                          
+00001f29  putc                           
+00001fb5  __aeabi_cdcmpeq                
+00001fb5  __aeabi_cdcmple                
+0000203b  __aeabi_cdrcmple               
+000020c1  __aeabi_memclr                 
+000020c1  __aeabi_memclr4                
+000020c1  __aeabi_memclr8                
+000020c3  __aeabi_memset                 
+000020c3  __aeabi_memset4                
+000020c3  __aeabi_memset8                
+000020c9  memset                         
+0000213d  __TI_closefile                 
+00002291  HOSTrename                     
+000022fd  HOSTlseek                      
+00002365  __TI_decompress_lzss           
+000023cd  printf                         
+00002435  frexp                          
+00002435  frexpl                         
+00002499  fseek                          
+000024fd  __TI_wrt_ok                    
+00002561  HOSTopen                       
+000025c1  close                          
+0000261d  HOSTread                       
+00002675  HOSTwrite                      
+00002723  __TI_ltoa                      
+000027c9  __TI_doflush                   
+00002815  atoi                           
+00002861  exit                           
+000028a9  __aeabi_d2iz                   
+000028f1  HOSTclose                      
+00002935  HOSTunlink                     
+00002979  __TI_auto_init_nobinit_nopinit 
+000029bd  getdevice                      
+00002a41  __TI_writemsg                  
+00002a6f  C$$IO$$                        
+00002a79  strncpy                        
+00002ab1  __TI_cleanup                   
+00002ae5  __TI_readmsg                   
+00002b19  _c_int00_noargs                
+00002b4d  finddevice                     
+00002b7d  __aeabi_i2d                    
+00002bad  remove                         
+00002bad  unlink                         
+00002c01  lseek                          
+00002c29  write                          
+00002c51  memchr                         
+00002c71  __TI_zero_init_nomemset        
+00002ca9  memccpy                        
+00002cc5  copysign                       
+00002cc5  copysignl                      
+00002cdf  strcmp                         
+00002cf7  strchr                         
+00002d0d  strcpy                         
+00002d21  strlen                         
+00002d35  wcslen                         
+00002d47  __TI_decompress_none           
+00002d55  ResetISR                       
+00002d61  __aeabi_errno_addr             
+00002d69  malloc                         
+00002d79  _system_pre_init               
+00002d7d  C$$EXIT                        
+00002d7d  abort                          
+00002d80  _ctypes_                       
+00002f04  __TI_Handler_Table_Base        
+00002f10  __TI_Handler_Table_Limit       
+00002f18  __TI_CINIT_Base                
+00002f28  __TI_CINIT_Limit               
+20000000  __stack                        
+20000000  __start___llvm_prf_cnts        
+20000000  __stop___llvm_prf_cnts         
+20000200  __STACK_TOP                    
+20000800  __STACK_END                    
+20000800  _sys_memory                    
+20001000  _ftable                        
+200010f0  _device                        
+20001168  _stream                        
+200011b8  keyboard_output                
+200011c8  __TI_ft_end                    
+200011cc  __aeabi_stdin                  
+200011d0  __aeabi_stdout                 
+200011d4  __aeabi_stderr                 
+200011d8  __TI_cleanup_ptr               
+200011dc  __TI_dtors_ptr                 
+200011e0  __TI_enable_exit_profile_output
+200011e4  _lock                          
+200011e8  _unlock                        
+200011f4  errno                          
+200011f8  __CIOBUF_                      
+20001318  __TI_tmpnams                   
+200013b8  parmbuf                        
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   __mpu_init                     
+UNDEFED   _system_post_cinit             
+
+[134 symbols]

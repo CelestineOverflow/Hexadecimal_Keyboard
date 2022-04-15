@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS
+CG_TOOL_ROOT := C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.6.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -141,14 +141,14 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 Hexadecimal_Keyboard.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_SC4C1294NCPDT -g --c11 --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Hexadecimal_Keyboard.map" --heap_size=2048 --stack_size=2048 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Hexadecimal_Keyboard_linkInfo.xml" --rom_model -o "Hexadecimal_Keyboard.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.6.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --define=ccs="ccs" --define=PART_SC4C1294NCPDT --c11 --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Hexadecimal_Keyboard.map" --heap_size=2048 --stack_size=2048 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.6.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.6.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Hexadecimal_Keyboard_linkInfo.xml" --rom_model -o "Hexadecimal_Keyboard.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 Hexadecimal_Keyboard.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: Arm Hex Utility'
-	"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armhex" --diag_wrap=off -o "Hexadecimal_Keyboard.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.6.LTS/bin/armhex" --diag_wrap=off -o "Hexadecimal_Keyboard.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 

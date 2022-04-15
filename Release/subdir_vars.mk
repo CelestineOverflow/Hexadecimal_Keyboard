@@ -5,28 +5,31 @@
 SHELL = cmd.exe
 
 # Add inputs and outputs from these tool invocations to the build variables 
+CMD_SRCS += \
+../sc4c1294ncpdt.cmd 
+
 C_SRCS += \
-../Tutorial_Code/LED-Blink.c \
-../Tutorial_Code/PrintfTest.c 
+../main.c \
+../sc4c1294ncpdt_startup_ccs.c 
 
 C_DEPS += \
-./Tutorial_Code/LED-Blink.d \
-./Tutorial_Code/PrintfTest.d 
+./main.d \
+./sc4c1294ncpdt_startup_ccs.d 
 
 OBJS += \
-./Tutorial_Code/LED-Blink.obj \
-./Tutorial_Code/PrintfTest.obj 
+./main.obj \
+./sc4c1294ncpdt_startup_ccs.obj 
 
 OBJS__QUOTED += \
-"Tutorial_Code\LED-Blink.obj" \
-"Tutorial_Code\PrintfTest.obj" 
+"main.obj" \
+"sc4c1294ncpdt_startup_ccs.obj" 
 
 C_DEPS__QUOTED += \
-"Tutorial_Code\LED-Blink.d" \
-"Tutorial_Code\PrintfTest.d" 
+"main.d" \
+"sc4c1294ncpdt_startup_ccs.d" 
 
 C_SRCS__QUOTED += \
-"../Tutorial_Code/LED-Blink.c" \
-"../Tutorial_Code/PrintfTest.c" 
+"../main.c" \
+"../sc4c1294ncpdt_startup_ccs.c" 
 
 

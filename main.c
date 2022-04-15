@@ -1,23 +1,13 @@
-//===========================================================
-// Example Program for the TIVA TM4C1294XL Evaluation Board
-// With this file you can print text to the console of the
-// Code Composer Studio.
-//==========================================================
-// ! IMPORTANT !
-// This program runs endless. Stop with the "Red Square Button"
-// in Debug Mode (Terminate = CTRL + F2)
-//==========================================================
-// Include the Header File for controller tm4c1294ncpdt
+// Celestine Machuca
+
+#include "lib\basics.h"
 #include "inc/tm4c1294ncpdt.h"
 #include <stdint.h>
-#include <stdio.h>
-#include "lib\basics.h"
 // prototypes
+void squareWave(uint32_t steps, volatile uint32_t *latReg);
 void setup(void);
 void loop(void);
-char getKey();
-
-unsigned char arr[5] = {0x07, 0x0B, 0x0D, 0x0E, 0x0F};
+char getKey(void);
 
 void main(void)
 {
@@ -26,51 +16,59 @@ void main(void)
 }
 
 void setup()
-{
+{   
     printf("Starting Keyboard\n");
-    SYSCTL_RCGCGPIO_R |= 0x20; // clock enable
-    while ((SYSCTL_RCGCGPIO_R & 0x20) == 0)
-    {
-    };
-    enable_port(GPIO_PORTM_DEN_R);
-    GPIO_PORTM_DIR_R |= 0xF0; // set PORTM pins 0-3 as input and 4-7 as output
+    startClock(0x210); // enable clock to ports e to k
+    // 0x7FFF for using all ports
+    // port K OUTPUT
+    // direction
+    GPIO_PORTK_DIR_R |= 0xFF;
+    // data enable
+    GPIO_PORTK_DEN_R |= 0xFF;
+    // port E INPUT
+    // direction
+    GPIO_PORTE_AHB_DIR_R |= 0x00;
+    // data enable
+    GPIO_PORTE_AHB_DEN_R |= 0xFF;
+    printf("Setup Finish\n");
 }
 
 void loop()
 {
-    while (true)
+    while (1)
     {
-        printf("key being pressed => %c \n", getKey());
-        delay(100000);
+        printf("key pressed ====> %c\n", getKey());
+        delay(100);
     }
 }
 
-char keyboard_output[16] = {'1', '2', '3', 'F', '4', '5', '6', 'E', '7', '8', '9', 'D', 'A', '0', 'B', 'C'};
+char keyboard_output[4][4] = {{'1', '2', '3', 'F'}, {'4', '5', '6', 'E'}, {'7', '8', '9', 'D'}, {'A', '0', 'B', 'C'}};
 
 char getKey()
 {
     char key = '\0';
     int keys = 0;
-    int i;
-    for (i = 4; i < 8; i++)
+    for (int i = 0; i < 4; i++)
     {
-        GPIO_PORTM_DATA_R |= 0xF0; // SET PORTM pins 4-7 as HIGH
-        setPin(GPIO_PORTM_DATA_R, i, false);
-        int j;
-        for (j = 0; j < 4; j++)
+        setPin(&GPIO_PORTK_DATA_R, i, false);
+        delay(1000);
+        for (int j = 0; j < 4; j++)
         {
-            if (!checkPin(j, GPIO_PORTM_DATA_R)) // Active low
+            if (!checkPin(j, GPIO_PORTE_AHB_DATA_R))
             {
-                key = keyboard_output[j + i - 4]; // I hope this makes sense
                 keys++;
+                key = keyboard_output[i][j];
             }
         }
-
-        setPin(GPIO_PORTM_DATA_R, i, true);
+        setPin(&GPIO_PORTK_DATA_R, i, true);
     }
-    if (keys == 1 || keys == 0)
+    if (keys == 1)
     {
         return key;
+    }
+    if (keys == 0)
+    {
+        return 'x';
     }
     else
     {
