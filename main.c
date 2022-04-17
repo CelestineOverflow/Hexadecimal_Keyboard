@@ -16,7 +16,7 @@ void main(void)
 }
 
 void setup()
-{   
+{
     printf("Starting Keyboard\n");
     startClock(0x210); // enable clock to ports e to k
     // 0x7FFF for using all ports
@@ -38,41 +38,37 @@ void loop()
     while (1)
     {
         printf("key pressed ====> %c\n", getKey());
-        delay(100);
+        delay(1610000);
     }
 }
 
-char keyboard_output[4][4] = {{'1', '2', '3', 'F'}, {'4', '5', '6', 'E'}, {'7', '8', '9', 'D'}, {'A', '0', 'B', 'C'}};
+char keyboard_output[4][4] = {{'1', '4', '7', 'a'},
+                              {'2', '5', '8', '0'},
+                              {'3', '6', '9', 'b'},
+                              {'f', 'e', 'd', 'c'}};
 
 char getKey()
 {
     char key = '\0';
     int keys = 0;
-    for (int i = 0; i < 4; i++)
+    for (int x = 0; x < 4; x++)
     {
-        setPin(&GPIO_PORTK_DATA_R, i, false);
-        delay(1000);
-        for (int j = 0; j < 4; j++)
+        setPin(&GPIO_PORTK_DATA_R, x, false);
+        delay(10);
+        for (int y = 0; y < 4; y++)
         {
-            if (!checkPin(j, GPIO_PORTE_AHB_DATA_R))
+            if (!checkPin(y, GPIO_PORTE_AHB_DATA_R))
             {
                 keys++;
-                key = keyboard_output[i][j];
+                key = keyboard_output[x][y];
             }
         }
-        setPin(&GPIO_PORTK_DATA_R, i, true);
+        setPin(&GPIO_PORTK_DATA_R, x, true);
     }
-    if (keys == 1)
+    if (keys == 1 || keys == 0)
     {
         return key;
     }
-    if (keys == 0)
-    {
-        return 'x';
-    }
-    else
-    {
-        printf("Error: %d keys pressed\n", keys);
-        return '\0';
-    }
+    printf("Error: %d keys pressed\n", keys);
+    return '\0';
 }

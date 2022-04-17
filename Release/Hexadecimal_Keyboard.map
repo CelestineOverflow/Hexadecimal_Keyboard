@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.6                     
 ******************************************************************************
->> Linked Fri Apr 15 20:45:54 2022
+>> Linked Sun Apr 17 21:05:11 2022
 
 OUTPUT FILE NAME:   <Hexadecimal_Keyboard.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00002b19
@@ -357,7 +357,7 @@ ffffffff  binit
 00002cc5  copysign                       
 00002cc5  copysignl                      
 000012b7  delay                          
-00001363  enable_port                    
+0000135d  enable_port                    
 200011f4  errno                          
 00002861  exit                           
 00002b4d  finddevice                     
@@ -373,9 +373,9 @@ ffffffff  binit
 200011b8  keyboard_output                
 00001879  ldexp                          
 00001879  ldexpl                         
-00001341  loop                           
+0000133b  loop                           
 00002c01  lseek                          
-00001357  main                           
+00001351  main                           
 00002d69  malloc                         
 00001989  memalign                       
 00002ca9  memccpy                        
@@ -422,9 +422,9 @@ address   name
 000012b7  delay                          
 000012bf  checkPin                       
 000012cd  getKey                         
-00001341  loop                           
-00001357  main                           
-00001363  enable_port                    
+0000133b  loop                           
+00001351  main                           
+0000135d  enable_port                    
 00001509  __aeabi_ddiv                   
 00001765  fputs                          
 00001879  ldexp                          

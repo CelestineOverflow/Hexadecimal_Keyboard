@@ -11,6 +11,8 @@
         "type_traits": "c",
         "xiosbase": "c",
         "xlocale": "c",
-        "xutility": "c"
+        "xutility": "c",
+        "tm4c1294ncpdt.h": "c",
+        "basics.h": "c"
     }
 }
